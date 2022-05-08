@@ -45,10 +45,10 @@ class NewsListFragment : Fragment(R.layout.fragment_news_list) {
                 val intent = Intent(Intent.ACTION_SEND).apply {
                     data = Uri.parse("mailto:")
                     type = "text/plain"
-                    putExtra(Intent.EXTRA_SUBJECT, "News")
+                    putExtra(Intent.EXTRA_SUBJECT, getString(R.string.news))
                     putExtra(Intent.EXTRA_TEXT, newsLink)
                 }
-                startActivity(Intent.createChooser(intent, "Choose Email Client"))
+                startActivity(Intent.createChooser(intent, getString(R.string.emailClient)))
             }
         }
     }
