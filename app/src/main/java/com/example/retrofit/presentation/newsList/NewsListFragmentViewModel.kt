@@ -12,13 +12,13 @@ import javax.inject.Inject
 
 class NewsListFragmentViewModel @Inject constructor() : ViewModel() {
 
-    private val newsInteractorProvider = NewsInteractorFactory()
+    private val newsInteractorFactory = NewsInteractorFactory()
 
     val items: LiveData<List<BaseItem>> get() = _items
     private val _items = MutableLiveData<List<BaseItem>>()
 
     fun loadNews(search: String, context: Context) {
-        val result = newsInteractorProvider.getNewsInteractor(context).getNews(search)
+        val result = newsInteractorFactory.getNewsInteractor(context).getNews(search)
             .subscribeOn(Schedulers.io())
             .repeat(4)
             .delay(4, TimeUnit.SECONDS)
