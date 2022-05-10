@@ -19,7 +19,6 @@ class NewsListFragmentViewModel @Inject constructor() : ViewModel() {
 
     fun loadNews(search: String, context: Context) {
         val result = newsInteractorFactory.getNewsInteractor(context).getNews(search)
-            .subscribeOn(Schedulers.io())
             .repeat(3)
             .delay(4, TimeUnit.SECONDS)
             .subscribe { list ->
