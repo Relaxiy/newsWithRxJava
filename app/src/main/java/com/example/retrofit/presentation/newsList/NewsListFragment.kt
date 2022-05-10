@@ -42,15 +42,17 @@ class NewsListFragment : Fragment(R.layout.fragment_news_list) {
     private val shareNews by lazy {
         object : ShareClickListener {
             override fun sendNews(newsLink: String) {
-                val intent = Intent(Intent.ACTION_SEND).apply {
-                    data = Uri.parse("mailto:")
-                    type = "text/plain"
-                    putExtra(Intent.EXTRA_SUBJECT, getString(R.string.news))
-                    putExtra(Intent.EXTRA_TEXT, newsLink)
-                }
+                val intent = shareIntent(newsLink)
                 startActivity(Intent.createChooser(intent, getString(R.string.emailClient)))
             }
         }
+    }
+
+    private fun shareIntent(newsLink: String) = Intent(Intent.ACTION_SEND).apply {
+        data = Uri.parse("mailto:")
+        type = "text/plain"
+        putExtra(Intent.EXTRA_SUBJECT, getString(R.string.news))
+        putExtra(Intent.EXTRA_TEXT, newsLink)
     }
 
     private fun loadNews() {

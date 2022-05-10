@@ -15,12 +15,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/news_image"
+            android:id="@+id/newsImage"
             android:layout_width="328dp"
             android:layout_height="224dp" />
 
         <TextView
-            android:id="@+id/news_title"
+            android:id="@+id/newsTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -29,7 +29,7 @@
             tools:text="sdfdsf" />
 
         <TextView
-            android:id="@+id/news_description"
+            android:id="@+id/newsDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -50,7 +50,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/news_author"
+                android:id="@+id/newsAuthor"
                 android:layout_width="224dp"
                 android:layout_height="32dp"
                 android:textStyle="bold"
