@@ -9,6 +9,7 @@ import com.example.retrofit.domain.models.BaseItem
 import com.example.retrofit.domain.models.News
 import com.example.retrofit.presentation.newsList.recycler.BaseViewHolder
 import com.example.retrofit.presentation.newsList.recycler.clickListeners.ShareClickListener
+import com.example.retrofit.utils.ext.setImage
 
 class NewsViewHolder(
     private val binding: NewsItemBinding,
@@ -35,9 +36,7 @@ class NewsViewHolder(
             binding.newsDescription.text = description
             binding.newsAuthor.text = author
 
-            Glide.with(itemView.context)
-                .load(urlToImage)
-                .into(binding.newsImage)
+            setImage(urlToImage, binding.newsImage)
 
             binding.share.setOnClickListener {
                 shareClickListener.sendNews(url)

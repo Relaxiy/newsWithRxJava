@@ -1,13 +1,16 @@
 package com.example.retrofit.utils.ext
 
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import com.bumptech.glide.Glide
 import com.example.retrofit.data.models.ArticleResponse
 import com.example.retrofit.data.models.NewsResponse
 import com.example.retrofit.domain.models.BaseItem
 import com.example.retrofit.domain.models.Date
 import com.example.retrofit.domain.models.News
 import com.example.retrofit.domain.models.TotalResult
+import com.example.retrofit.presentation.newsList.recycler.viewHolders.NewsViewHolder
 
 fun FragmentActivity.openFragment(tag: String, fragment: Fragment, id: Int) {
     supportFragmentManager
@@ -21,6 +24,11 @@ fun String.toDate(): String {
     return this.substring(0, 10)
 }
 
+fun NewsViewHolder.setImage(urlToImage: String?, newsImage: ImageView){
+    Glide.with(this.itemView.context)
+        .load(urlToImage)
+        .into(newsImage)
+}
 fun NewsResponse.toBaseItems(): List<BaseItem> {
     val items = mutableListOf<BaseItem>()
     val articles = this.articles
