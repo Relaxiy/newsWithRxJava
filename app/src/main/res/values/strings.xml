@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Retrofit</string>
+    <string name="count_results">Количество результатов:</string>
+    <string name="author">Автор:</string>
+    <string name="news">News</string>
+    <string name="emailClient">Choose Email Client</string>
+</resources>
