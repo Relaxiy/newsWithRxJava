@@ -36,7 +36,7 @@ class NewsViewHolder(
             binding.newsDescription.text = description
             binding.newsAuthor.text = author
 
-            setImage(urlToImage, binding.newsImage)
+            binding.newsImage.setImage(urlToImage)
 
             binding.share.setOnClickListener {
                 shareClickListener.sendNews(url)

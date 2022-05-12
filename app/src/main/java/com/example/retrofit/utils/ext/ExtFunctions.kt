@@ -24,11 +24,12 @@ fun String.toDate(): String {
     return this.substring(0, 10)
 }
 
-fun NewsViewHolder.setImage(urlToImage: String?, newsImage: ImageView){
-    Glide.with(this.itemView.context)
+fun ImageView.setImage(urlToImage: String?){
+    Glide.with(this)
         .load(urlToImage)
-        .into(newsImage)
+        .into(this)
 }
+
 fun NewsResponse.toBaseItems(): List<BaseItem> {
     val items = mutableListOf<BaseItem>()
     val articles = this.articles
